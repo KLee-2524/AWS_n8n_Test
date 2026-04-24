@@ -6,7 +6,7 @@ variable "instance_type" {
 variable "n8n_ami" {
     description = "AMI of the n8n VM to deploy"
     type        = string
-    default     = "ami-"
+    default     = "ami-0507f5acd9ba8e6b7"
 }
 
 variable "vpc_id" {
