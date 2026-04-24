@@ -1,2 +1,2 @@
 # AWS_n8n_Test
-Deploy a server to run n8n. 
+Deploy an Ubuntu EC2 instance in AWS to run n8n. 
