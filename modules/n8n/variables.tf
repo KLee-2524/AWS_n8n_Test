@@ -38,5 +38,17 @@ variable "n8n_setup_script" {
     sudo apt-get update -y
     sudo apt-get full-upgrade -y
     echo "apt-get udpate & upgrade initiated" >> /home/ubuntu/TEST/setup_log.txt
+
+    sudo curl -fsSL https://get.docker.com | bash -s docker
+    echo "installing docker" >> /home/ubuntu/TEST/setup_log.txt
+
+    sudo service docker start
+    echo "starting docker" >> /home/ubuntu/TEST/setup_log.txt
+
+    sudo docker volume create n8n_data
+    echo "created n8n_data docker volume" >> /home/ubuntu/TEST/setup_log.txt
+
+    sudo docker run -d --name n8n -e N8N_SECURE_COOKIE=false -p 5678:5678 -v n8n_data:/home/ubuntu docker.n8n.io/n8nio/n8n
+    echo "configured n8n for access via web browser" >> /home/ubuntu/TEST/setup_log.txt
     EOT
 }
