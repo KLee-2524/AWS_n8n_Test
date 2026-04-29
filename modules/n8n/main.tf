@@ -26,6 +26,14 @@ resource "aws_security_group" "n8n-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # n8n access port
+  ingress {
+    from_port  = 5678
+    to_port    = 5678
+    protocol   = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   # Either from 8 + to -1 or from -1 + to -1
   ingress {
     from_port   = -1
